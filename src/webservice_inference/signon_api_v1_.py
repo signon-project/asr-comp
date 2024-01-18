@@ -22,7 +22,7 @@ def retrieveCodeLanguage(sourceLanguage):
 # ASRpost_version2.1.py
 r = requests.post('https://restasr.cls.ru.nl/auth/login', json={
     "username": "SignOnASR",
-    "password": "SignOnASR2022"
+    "password": "**********"
 }, headers={'Content-Type': 'application/json'},
                 timeout=(conf['externalServices']['timeout']))
 # print(f"Status Code: {r.status_code}, Response: {r.json()}")

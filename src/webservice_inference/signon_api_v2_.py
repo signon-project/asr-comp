@@ -25,7 +25,7 @@ def retrieveCodeLanguage(sourceLanguage):
 # Login and get access token in CLST ASR API
 # CLST ASR API Credentials
 username_signon_wav2vec2 = "signon@project.eu"
-password_signon_wav2vec2 = "SignonProject2023"
+password_signon_wav2vec2 = "*****************"
 
 url_signon_wav2vec2 = 'https://signon-wav2vec2.cls.ru.nl/login'
 payload_signon_wav2vec2 = {
@@ -43,11 +43,11 @@ headers_signon_wav2vec2 = {
 response_signon_wav2vec2 = requests.post(url_signon_wav2vec2, data=payload_signon_wav2vec2, headers=headers_signon_wav2vec2)
 access_token_signon_wav2vec2 = response_signon_wav2vec2.json()['access_token']
 
-"""
+
 # Login and get access token in  RESTASR API
 # RESR ASR API Credentials
 username_restasr = "SignOnASR"
-password_restasr = "SignOnASR2022"
+password_restasr = "*********"
 url_restasr_login = 'https://restasr.cls.ru.nl/auth/login'
 payload_restasr_login = {
     "username": username_restasr,
@@ -58,7 +58,7 @@ headers_restasr_login = {
 }
 response_restasr = requests.post(url_restasr_login, json=payload_restasr_login, headers=headers_restasr_login)
 access_token_restasr = response_restasr.json()['data']['access_token']
-"""
+
 
 def transcribe(filename, lang_code):
     if lang_code in [2,3,4]:
@@ -88,8 +88,7 @@ def transcribe(filename, lang_code):
         output = response.json()
         transcript = output[0].split(': ')[-1]
         return transcript
-    
-"""
+
     elif lang_code == 4:
         url = 'https://restasr.cls.ru.nl/users/SignOnASR/audio'
         audio_filename = os.path.basename(filename)
@@ -110,7 +109,7 @@ def transcribe(filename, lang_code):
                            json=params, headers={'Authorization': "Bearer "+access_token_restasr})
         transcript = r3.json()['data']['nbest']
         return transcript
-"""
+
 if __name__ == "__main__":
     lang_code = retrieveCodeLanguage("DUT")
     #lang_code = retrieveCodeLanguage(data['App']['sourceLanguage'])
