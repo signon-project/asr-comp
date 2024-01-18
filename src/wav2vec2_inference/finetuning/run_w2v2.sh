@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+python run_speech_recognition_ctc.py \
+    --train_dataset_csv="path-to-/training_dataset.csv" \
+    --test_dataset_csv="path-to-/testing_dataset.csv"\
+    --cache_dir="path-to-/cache_model_dir/" \
+    --cache_dataset_dir="path-to-/cache_dataset_dir" \
+    --dataset_name="common_voice" \
+    --model_name_or_path="facebook/wav2vec2-xls-r-300m" \
+    --the_asr_language="es" \
+    --output_dir="./wav2vec2-common_voice-es-xls-r-300m" \
+    --overwrite_output_dir \
+    --num_train_epochs="15" \
+    --per_device_train_batch_size="8" \
+    --gradient_accumulation_steps="3" \
+    --learning_rate="3e-4" \
+    --warmup_steps="500" \
+    --evaluation_strategy="steps" \
+    --text_column_name="sentence" \
+    --length_column_name="input_length" \
+    --save_steps="3000" \
+    --eval_steps="2000" \
+    --layerdrop="0.0" \
+    --save_total_limit="3" \
+    --freeze_feature_encoder \
+    --gradient_checkpointing \
+    --chars_to_ignore , ? . ! - \; \: \" “ % ‘ ” � \
+    --fp16 \
+    --group_by_length \
+    --push_to_hub \
+    --run_name wav2vec2_spanish_cv \
+    --do_train --do_eval 
