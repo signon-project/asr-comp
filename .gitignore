@@ -1,0 +1,6 @@
+# Ignore models file types
+*.fst
+*.pt
+*.mdl
+*.wav
+*.mp3

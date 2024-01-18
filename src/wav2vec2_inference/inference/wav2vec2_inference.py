@@ -17,7 +17,7 @@ Arguments:
 - --audio_filepath: Path to the audio file for transcription.
 
 Example:
-   python your_script.py --model_id FremyCompany/xls-r-2b-nl-v2_lm-5gram-os --cache_dir /path/to/cache_dir --audio_filepath /path/to/audio_file.wav
+   python your_script.py --model_id path/to/model/xls-r-300m-nl-v2_lm-5gram-os --cache_dir /path/to/cache_dir --audio_filepath /path/to/audio_file.wav
 """
 
 import argparse
